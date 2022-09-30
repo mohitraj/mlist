@@ -67,7 +67,36 @@ class Mlist(list):
 		diff =Mlist([self[i] for i in list2])
 		return diff
 		
+	def club(self,other, first=None, second=None):
+		dict1 = {}
+		if first is not None :
+			self1=list(map(lambda x: x[first], self))
+
+		if second is not None:
+			other1 = list(map(lambda x: x[second],other ))
+		
+		list2= Mlist((self1.index(each),other1.index(each)) for each in other1 if each in self1)
+		#print (list2, first, second)
+		for k,v in list2:
+			del other[v][second]
+			self[k].extend(other[v])
+		
+
+	def lookup(self,other, first=None, second=None):
+		self1 = self 
+		other1 = other
+		if first is not None :
+			self1=list(map(lambda x: x[first], self))
+
+		if second is not None:
+			other1 = list(map(lambda x: x[second],other ))
 			
+		list2= Mlist(self1.index(each) for each in other1 if each in self1)
+		#print (list2, first, second)
+		list2.sort()
+		diff =Mlist([self[i] for i in list2])
+		return diff			
+
 	
 	def csv_read(self,file_name):
 		with open(file_name) as csv_file:
@@ -79,10 +108,19 @@ class Mlist(list):
 			return self
 			
 			
+	def csv_write(self,file_name):
+		with open(file_name, 'w',newline='') as file:
+			writer = csv.writer(file)
+			writer.writerows(self)
+
+	def file_write(self,file_name):
+		fr = open(file_name, "w")
+		fr.writelines(self)
+		fr.close()
 		
 if __name__ == "__main__":
 	list1  = Mlist([[1,7],[3,4],[9,8]])
 	list2 = Mlist([5,7,8])
 	#print (diff(list1 - list2) )
 	list1.diff(list2,1)
-	print (list1)
+	#print (list1)
