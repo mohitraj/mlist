@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mlist",
-    version="1.0.0",
+    version="1.2.0",
     author="Mohit",
     author_email="mohitraj.cs@email.com",
     description="A modified list ",
