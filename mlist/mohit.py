@@ -105,7 +105,7 @@ class Mlist(list):
 			#data =[[[each[0]].extend([eval(i) for i in each[1:]])] for each in csv_reader]
 			#return (data)
 			self.extend(data)
-			return self
+			#return self
 			
 			
 	def csv_write(self,file_name):
