@@ -20,7 +20,7 @@ from mlist import Mlist
 >>> list1 = Mlist([1,2,3,4])
 >>>
 >>> list1.diffshow(list2)
-[1, 2]
+[5,6]
 >>> list1
 [1, 2, 3, 4]
 >>>
@@ -30,7 +30,7 @@ from mlist import Mlist
 >>> list2 = Mlist([(10,"a"),(20,"b"),(30,"k"),(40,"l")])
 >>>
 >>> list1.diffshow(list2,1,1)
-[(1, 'a'), (2, 'b')]
+[(3,"c"),(4,"d")]
 >>>
 >>> list1 = Mlist([(1,"a"),(2,"b"),(3,"c"),(4,"d")])
 >>>
@@ -38,7 +38,7 @@ from mlist import Mlist
 >>>
 # Criteria 2 dimension, 1,0 means Ist value from inner tuple of list1 and 0th value from inner tuple of list2
 >>> list1.diffshow(list2,1,0)
-[(1, 'a'), (2, 'b')]
+[(3,"c"),(4,"d")]
 
 >>> list1 = Mlist([1,2,3,4])
 >>> list2 = Mlist([1,2,5,6])

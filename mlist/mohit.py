@@ -45,7 +45,7 @@ class Mlist(list):
 		if second is not None:
 			other1 = list(map(lambda x: x[second],other ))
 			
-		list2= [self1.index(each) for each in other1 if each not in self1]
+		list2= Mlist(self1.index(each) for each in self1 if each not in other1)
 		#print (list2, first, second)
 		list2.sort(reverse=1)
 		for i in list2:
@@ -61,7 +61,7 @@ class Mlist(list):
 		if second is not None:
 			other1 = list(map(lambda x: x[second],other ))
 			
-		list2= Mlist(self1.index(each) for each in other1 if each not in self1)
+		list2= Mlist(self1.index(each) for each in self1 if each not in other1)
 		#print (list2, first, second)
 		list2.sort()
 		diff =Mlist([self[i] for i in list2])
